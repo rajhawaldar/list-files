@@ -21,7 +21,7 @@ jobs:
       - name: "list files"
         if: ${{ env.IS_MERGED == 'true' }}
         run: |
-          listFiles=$(git diff --name-only HEAD HEAD^)
+          listFiles=$(git diff --name-only HEAD HEAD~1)
 
           for file in $listFiles
           do 
