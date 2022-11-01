@@ -12,9 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: "list files"
         run: |
-          listFiles=$(git diff --name-only HEAD HEAD~1)
+          listFiles=$(git diff --name-only HEAD HEAD^)
 
           for file in $listFiles
           do 
