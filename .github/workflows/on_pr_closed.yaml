@@ -7,8 +7,8 @@ on:
 env: 
   IS_MERGED: ${{ github.event.pull_request.merged }}
 jobs:
-  if: github.event.pull_request.merged == 'true'
   print:
+    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: "Print contexts"
