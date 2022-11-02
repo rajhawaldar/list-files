@@ -7,6 +7,7 @@ on:
 env: 
   IS_MERGED: ${{ github.event.pull_request.merged }}
 jobs:
+  if: github.event.pull_request.merged == 'true'
   print:
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +16,7 @@ jobs:
           echo "${{ toJson(github.event.pull_request) }}"
   
   list-files:
+    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
